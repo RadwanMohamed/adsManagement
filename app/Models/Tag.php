@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     use HasFactory;
+
+    /**
+     * @var string[]
+     */
+    protected $fillable = ['title', 'description'];
+
+    /**
+     * define relation between ads and tags
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function ads()
+    {
+        return $this->belongsToMany(Ads::class, 'ads_tags');
+    }
 }
