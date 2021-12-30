@@ -65,6 +65,9 @@ class Handler extends ExceptionHandler
         $this->renderable(function (\HttpException $exception, $request) {
             return $this->errorResponse($exception->getMessage(), $exception->getStatusCode());
         });
+        $this->renderable(function (\BadMethodCallException $exception, $request) {
+            return $this->errorResponse("something went wrong!", 500);
+        });
         $this->renderable(function (QueryException $exception, $request) {
         /*    if($exception->errorInfo[0] == '42S02')
                 return  $this->errorResponse($exception->errorInfo[2],500);

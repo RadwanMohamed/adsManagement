@@ -13,7 +13,5 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource("categories",\App\Http\Controllers\Api\Category\CategoryController::class)->except(['edit','create']);
+Route::resource("tags",\App\Http\Controllers\Api\Tag\TagController::class)->except(['edit','create']);
