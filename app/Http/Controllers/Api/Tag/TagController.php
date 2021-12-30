@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api\Tag;
 
+use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TagResquest;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class TagController extends Controller
+class TagController extends ApiController
 {
     /**
      * Display a listing of the resource.
