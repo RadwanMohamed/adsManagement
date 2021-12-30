@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 Route::resource("categories",\App\Http\Controllers\Api\Category\CategoryController::class)->except(['edit','create']);
 Route::resource("tags",\App\Http\Controllers\Api\Tag\TagController::class)->except(['edit','create']);
+Route::resource("ads",\App\Http\Controllers\Api\Ads\AdsController::class)->except(['edit','create']);

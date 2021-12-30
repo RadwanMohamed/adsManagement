@@ -23,6 +23,23 @@ class Ads extends Model
     protected $fillable =['title', 'description', 'advertiser_id', 'start_date', 'type', 'category_id'];
 
     /**
+     * @var string[]
+     */
+    protected  $hidden = ['pivot'];
+
+    /**
+     * boot function to delete all ads related with this category
+     * @void
+     */
+    public static function boot()
+    {
+        parent::boot();
+        static::deleting(function ($category){
+            $category->tags()->delete();
+        });
+    }
+
+    /**
      * get all available allowed types
      * @return string[]
      */

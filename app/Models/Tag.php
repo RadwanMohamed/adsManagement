@@ -15,6 +15,12 @@ class Tag extends Model
     protected $fillable = ['title', 'description'];
 
     /**
+     * @var string[]
+     */
+    protected  $hidden = ['pivot'];
+
+
+    /**
      * define relation between ads and tags
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
