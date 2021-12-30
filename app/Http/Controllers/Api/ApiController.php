@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Traits\Sender;
 use App\User;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponser;
@@ -10,7 +11,6 @@ use App\Traits\ApiResponser;
 class ApiController extends Controller
 {
     use ApiResponser;
-
     /**
      * custom pagination function
      * @param $collection
