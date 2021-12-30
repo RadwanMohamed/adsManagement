@@ -6,6 +6,7 @@ use App\Models\Ads;
 use App\Models\AdsTag;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -26,6 +27,12 @@ class DatabaseSeeder extends Seeder
         Ads::truncate();
         Category::truncate();
         Tag::truncate();
+        User::truncate();
+
+        /**
+         * seeding table users
+         */
+        User::factory()->count(10)->create();
 
         /**
          * seeding table categories
@@ -46,7 +53,7 @@ class DatabaseSeeder extends Seeder
                 $ads->tags()->attach($tags);
             }
         );
-        die();
+
 
     }
 }

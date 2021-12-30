@@ -17,7 +17,7 @@ class CreateAdsTable extends Migration
             $table->id();
             $table->string("title");
             $table->text("description");
-            $table->string("advertiser");
+            $table->unsignedBigInteger("advertiser_id");
             $table->dateTime("start_date");
             $table->enum("type",Ads::getAvailableTypes());
             $table->unsignedBigInteger("category_id");
@@ -26,6 +26,10 @@ class CreateAdsTable extends Migration
             $table->foreign("category_id")
                   ->references("id")
                   ->on("categories")->onDelete("cascade");
+
+            $table->foreign("advertiser_id")
+                  ->references("id")
+                  ->on("users")->onDelete("cascade");
         });
     }
 

@@ -20,7 +20,7 @@ class Ads extends Model
     /**
      * @var string[]
      */
-    protected $fillable =['title', 'description', 'advertiser', 'start_date', 'type', 'category_id'];
+    protected $fillable =['title', 'description', 'advertiser_id', 'start_date', 'type', 'category_id'];
 
     /**
      * get all available allowed types
@@ -48,5 +48,13 @@ class Ads extends Model
      */
     public function tags(){
         return $this->belongsToMany(Tag::class,'ads_tags');
+    }
+
+    /**
+     * define relation between ads and tags
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function advertiser(){
+        return $this->belongsTo(User::class,'advertiser_id');
     }
 }
