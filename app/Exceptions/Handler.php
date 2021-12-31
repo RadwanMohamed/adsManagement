@@ -57,7 +57,7 @@ class Handler extends ExceptionHandler
         });
 
         $this->renderable(function (NotFoundHttpException $exception, $request) {
-            return $this->errorResponse(__("messages.notFound"), 404);
+            return $this->errorResponse("not found", 404);
         });
         $this->renderable(function (MethodNotAllowedException $exception, $request) {
             return $this->errorResponse('the specified method for the request is invalid', 405);

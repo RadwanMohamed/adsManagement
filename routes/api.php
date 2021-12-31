@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::resource("categories",\App\Http\Controllers\Api\Category\CategoryController::class)->except(['edit','create']);
 Route::resource("tags",\App\Http\Controllers\Api\Tag\TagController::class)->except(['edit','create']);
 Route::resource("ads",\App\Http\Controllers\Api\Ads\AdsController::class)->except(['edit','create']);
+Route::resource("ads.advertiser",\App\Http\Controllers\Api\Ads\AdsAdvertiserController::class)->only('index');
+Route::resource("advertisers.ads",\App\Http\Controllers\Api\Advertiser\AdvertiserAdsController::class)->only('index');
+Route::resource("advertisers",\App\Http\Controllers\Api\Advertiser\AdvertiserController::class)->only('index','show');
